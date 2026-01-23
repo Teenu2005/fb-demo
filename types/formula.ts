@@ -10,15 +10,15 @@ export type Ingredient = {
 export type FormulaIngredient = {
   ingredientId: string;
   quantity: number;
+  isDeleted?: boolean; // 👈 soft delete flag
 };
 
 export type Formula = {
-  id: string;              // unique id
-  name: string;            // formula name
-  code: string;            // FR-2026-504
-  type: string;            // Fine Fragrance etc
-  project?: string;        // optional
-  description?: string;   // optional
+  id: string;
+  name: string;
+  code: string;
+  type: string;
+  description?: string;
   ingredients: FormulaIngredient[];
-  createdAt: string;      // for sorting / audit
+  project:string
 };

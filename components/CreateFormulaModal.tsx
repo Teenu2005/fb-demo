@@ -30,7 +30,6 @@ export default function CreateFormulaModal({
       project,
       description,
       ingredients: [],
-      createdAt: new Date().toISOString(),
     };
     saveFormula(newFormula);
     onCreated();

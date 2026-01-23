@@ -5,7 +5,7 @@ import { getFormulas } from "@/utils/storage";
 import { Formula } from "@/types/formula";
 import { AgGridReact } from "ag-grid-react";
 import "@/lib/agGridSetup";
-import ActionButton from "@/components/ActionButton";
+import ActionButton from "@/components/Ag-grid/ActionButton";
 import CreateFormulaModal from "@/components/CreateFormulaModal";
 
 export default function HomePage() {
@@ -35,7 +35,7 @@ export default function HomePage() {
   const defColDefs = useMemo(() => ({ flex: 1 }), []);
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-5xl mx-auto bg-white p-6 rounded-xl shadow">
+      <div className="mx-auto bg-white p-6 rounded-xl shadow">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">Formula Dashboard</h1>
 
@@ -52,6 +52,9 @@ export default function HomePage() {
             rowData={formulas}
             columnDefs={colDefs}
             defaultColDef={defColDefs}
+            context={{
+              refreshFormulas: loadFormulasFromStorage,
+            }}
           />
         </div>
       </div>
